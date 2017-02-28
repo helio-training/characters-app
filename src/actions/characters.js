@@ -1,0 +1,1 @@
+export const createCharacter = character => ({ type: 'CREATE_CHARACTER', character });
