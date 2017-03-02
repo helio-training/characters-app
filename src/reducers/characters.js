@@ -1,8 +1,7 @@
-import { CHARACTERS, CHARACTER_FILTERS } from '../actions/types';
+import { CHARACTERS } from '../actions/types';
 
 
-
-export default (state = {}, action) => {
+export default (state = { characters: [] }, action) => {
   switch (action.type) {
     case CHARACTERS.CREATE_CHARACTER:
       return Object.assign({}, state, { characters: [...state.characters, action.character] });
