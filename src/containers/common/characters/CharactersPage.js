@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { filterCharacters } from '../../../actions/characters';
 
 class CharactersPage extends Component {
+
+  componentDidMount() {
+    this.props.filterCharacters();
+  }
+
 
   render() {
     return (
@@ -22,9 +28,16 @@ class CharactersPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    characters: state.characters.characters
+    characters: state.characters
   }
 };
 
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    filterCharacters: () => {
+      return dispatch(filterCharacters());
+    }
+  };
+};
 
-export default connect(mapStateToProps)(CharactersPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CharactersPage);
